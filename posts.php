@@ -20,3 +20,14 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+require_once("functions.php"); //Dosyayı birkez getirmek istediğimizden ve parametre olarak verdiğimiz dosya yolu bulunamazsa error verip çalışmasını durduğu için kullanmak istedim
+
+$randomPostCount = getRandomPostCount(1, 100); // 1 ila 100 arasında rasgele sayı döndürür
+$posts = getLatestPosts($randomPostCount); // rasgele post sayı değerine göre son postları dizi olarak getirir
+
+  foreach ($posts as $id => $post) {
+      include('post.php'); // diziyi kullanarak `post.php` betik dosyasını döngü içinde dahil etme
+     }           
+
+         ?>
+
