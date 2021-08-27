@@ -16,6 +16,14 @@
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
  */
 
+ $fileBase = basename("http://localhost/functions.php");
+ $serverBase = basename($_SERVER['PHP_SELF']);
+
+ // iki dosyanın isimleri eşit olması durumunda 
+ if($serverBase == $fileBase) { 
+    exit ("$fileBase dosyasını direkt çalıştırmaz"); 
+ }
+ else { // Eğer iki dosyanın isimleri eşit olmaması durumunda aşağıdaki kodlar çalışssın!!
 function getLatestPosts($count = 5)
 {
     $posts = [];
@@ -46,6 +54,12 @@ function getPostDetails($id, $title)
 </p>
 EOT;
 }
+ }
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+    function getRandomPostCount($min, $max) { 
+    return rand($min,$max);
+}
+
+ ?>
